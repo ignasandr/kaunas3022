@@ -7,8 +7,9 @@ export default function App() {
   return (
     <ChakraProvider theme={theme}>
         <Layout>
-          <Box>Home Page</Box>
+            <Box>About us</Box>
         </Layout>
     </ChakraProvider>
   )
 }
+
