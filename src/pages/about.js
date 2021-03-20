@@ -1,15 +1,9 @@
 import React from "react"
-import { Box, ChakraProvider } from "@chakra-ui/react"
-import Layout from "./components/layouts/Layout"
-import theme from "../gatsby-plugin-chakra-ui/theme"
+import { Box } from "@chakra-ui/react"
 
-export default function App() {
+export default function About() {
   return (
-    <ChakraProvider theme={theme}>
-        <Layout>
-            <Box>About us</Box>
-        </Layout>
-    </ChakraProvider>
+    <Box>About us</Box>
   )
 }
 

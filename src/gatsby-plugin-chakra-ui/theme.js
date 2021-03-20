@@ -37,7 +37,7 @@ const theme = extendTheme({
         global: (props) => ({
           body: {
             fontFamily: "Work Sans",
-            bg: mode("white", "black")(props),
+            bg: mode("white", "#1a202c")(props),
             color: mode("black", "white")(props)
           }
         })
