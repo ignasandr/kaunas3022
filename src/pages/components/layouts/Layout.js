@@ -7,6 +7,7 @@ export default function Layout(props) {
     <Flex
       direction="column"
       align="center"
+      justify="center"
       m="0 auto"
     >
       <Header />

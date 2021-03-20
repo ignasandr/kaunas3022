@@ -1,5 +1,9 @@
 import { extendTheme } from "@chakra-ui/react"
 import { mode } from "@chakra-ui/theme-tools"
+import "@fontsource/work-sans/200.css"
+import "@fontsource/work-sans/300.css"
+import "@fontsource/work-sans/400.css"
+import "@fontsource/work-sans/500.css"
 
 // const config = {
 //   initialColorMode: "light",
@@ -27,13 +31,14 @@ import { mode } from "@chakra-ui/theme-tools"
 // }
 
 const theme = extendTheme({
-    initialColorMode: "light",
+    initialColorMode: "dark",
     useSystemColorMode: false,
     styles: {
         global: (props) => ({
           body: {
+            fontFamily: "Work Sans",
             bg: mode("white", "black")(props),
-            color: mode("red.500", "red.500")(props)
+            color: mode("black", "white")(props)
           }
         })
     }
