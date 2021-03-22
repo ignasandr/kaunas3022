@@ -1,13 +1,14 @@
-import React from "react"
+import React, { useState } from "react"
 import { Flex, HStack, Box, useColorMode, Fade } from "@chakra-ui/react"
 import { Link } from "gatsby"
 import { StaticImage } from "gatsby-plugin-image"
+import { AnimateSharedLayout, motion } from "framer-motion"
 
 const MenuItems = ["Home", "About", "Market", "Contact"];
 
 export default function Header () {
     const { colorMode, toggleColorMode } = useColorMode();
-
+    const [ selected, setSelected ] = useState(MenuItems[0]);
     return(
         <Flex
             as="nav"
@@ -26,12 +27,48 @@ export default function Header () {
                 </Fade>
                </Link>
             </Box>
-            <HStack spacing="5" mr={10} fontSize="2xl" fontWeight="400">
-              { MenuItems.map((name) => {
-                const trimmed = "/" + name.replace(/\s+/g, '').toLowerCase();
-                return(<Link key={trimmed} to={name === "Home" ? "/" : trimmed}>{name}</Link>)
-              })}
-            </HStack>
+            <AnimateSharedLayout>
+              <HStack spacing="5" mr={10} fontSize="2xl" fontWeight="400">
+                { MenuItems.map((name) => {
+                  const trimmed = "/" + name.replace(/\s+/g, '').toLowerCase();
+                  return(<Item
+                        trimmed={trimmed}
+                        name={name}
+                        isSelected={selected === name}
+                        color={colorMode === 'dark' ? 'red' : '#3182CE'}
+                        onClick={() => {
+                          setSelected(name);
+                        }}
+                      />)
+                })}
+              </HStack>
+            </AnimateSharedLayout>
         </Flex>);
 
 }
+
+const Item = ({ trimmed, name, isSelected, color, onClick}) => {
+  console.log(trimmed, name, isSelected, color);
+  return (
+    <Link key={trimmed} to={name === "Home" ? "/" : trimmed} style={{ position: 'relative' }} onClick={onClick}>
+      <Box _hover={{ color: `${color}`}} color={isSelected ? `${color}` : '' }>
+        {name}
+        {isSelected && (
+          <motion.div
+            layoutId="outline"
+            className="outline"
+            initial={false}
+            transition={spring}
+            style={{ position: 'absolute', width: '100%', height: '3px', backgroundColor: `${color}`, bottom: '-5px' }}
+          /> 
+        )}
+      </Box>
+    </Link>
+  )
+}
+
+const spring = {
+  type: "spring",
+  stiffness: 500,
+  damping: 30
+};
