@@ -4,6 +4,7 @@ import "@fontsource/work-sans/200.css"
 import "@fontsource/work-sans/300.css"
 import "@fontsource/work-sans/400.css"
 import "@fontsource/work-sans/500.css"
+import "@fontsource/work-sans/300-italic.css"
 
 // const config = {
 //   initialColorMode: "light",
