@@ -1,22 +1,52 @@
 import React from "react";
-import { graphql } from "gatsby";
-import { Center, Stack, Text } from "@chakra-ui/layout";
+import { graphql, Link } from "gatsby";
+import { Center, Text, Flex, AspectRatio, Box, Badge } from "@chakra-ui/layout";
+import { ArrowBackIcon } from '@chakra-ui/icons';
+import {
+  Button,
+  IconButton,
+  Image
+} from "@chakra-ui/react";
 
 export default function MarketItem({ data }) {
-    const { title, imageUrl, imageAlt, videoUrl, CID, collection, formattedPrice } = data.mdx.frontmatter;
+  const {
+    title,
+    imageUrl,
+    imageAlt,
+    videoUrl,
+    collection,
+    formattedPrice,
+  } = data.mdx.frontmatter;
+
   return (
-      <Center>
-          <Stack>
-          <Text>{title}</Text>
-          <Text>{imageUrl}</Text>
-          <Text>{imageAlt}</Text>
-          <Text>{videoUrl ? "Yes" : "No"}</Text>
-          <Text>{CID}</Text>
-          <Text>{collection}</Text>
-          <Text>{formattedPrice}</Text>
-        </Stack>
-      </Center>
-  )
+    <Center>
+      <Flex flexDirection="column" w={["70vw", "60vw", "50vw", "35vw"]}>
+        <Box style={{ position: "relative "}}>
+          <Link to="/market" style={{ position: "absolute", left: -50, top: 8 }}><IconButton aria-label="back" icon={<ArrowBackIcon/>} /></Link>
+          <Text w="100%" textAlign="center" my="3" fontSize="xl" fontWeight="bold">
+            {title}
+          </Text>
+        </Box>
+        <Box>
+          {videoUrl ? (
+            <Video title={title} src={videoUrl} />
+          ) : (
+            <Image src={imageUrl} alt={imageAlt} />
+          )}
+        </Box>
+          <Box my="3" w="100%">
+            <Flex justify="space-between" align="center">
+              <Box>
+                <Text>Name: {title}</Text>
+                <Text>Collection: {collection}</Text>
+                <Text>Price: {formattedPrice ? <Badge>{formattedPrice}</Badge> : "Not for sale"}</Text>
+              </Box>
+              <Button>BUY</Button>
+            </Flex>
+          </Box>
+      </Flex>
+    </Center>
+  );
 }
 
 export const query = graphql`
@@ -36,3 +66,11 @@ export const query = graphql`
     }
   }
 `;
+
+const Video = ({ title, src }) => {
+  return (
+    <AspectRatio ratio={1}>
+      <Box as="iframe" title={title} src={src} allowFullScreen />
+    </AspectRatio>
+  );
+};

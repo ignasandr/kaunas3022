@@ -2,57 +2,6 @@ import React from "react";
 import { Box, Image, Badge, Center, Flex } from "@chakra-ui/react";
 import { Link, graphql } from "gatsby";
 
-// const marketItems = [
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/QmPhmst9Mnk1dBqs49jCzeexYZkBFojNgCKze6fKJRBpWM/collections/CulturalAppropriation.jpg",
-//     imageAlt: "Cultural Appropriation",
-//     collection: "Postcards from the future",
-//     title: "Cultural Appropriation",
-//     formattedPrice: "0.3 KSM",
-//   },
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/QmPhmst9Mnk1dBqs49jCzeexYZkBFojNgCKze6fKJRBpWM/collections/crashLanding.jpg",
-//     imageAlt: "Crash Landing",
-//     collection: "Postcards from the future",
-//     title: "Cultural Appropriation",
-//     formattedPrice: "0.3 KSM",
-//   },
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/QmPhmst9Mnk1dBqs49jCzeexYZkBFojNgCKze6fKJRBpWM/collections/freedom.jpg",
-//     imageAlt: "Freedom",
-//     collection: "Postcards from the future",
-//     title: "Freedom",
-//     formattedPrice: "0.3 KSM",
-//   },
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/QmPhmst9Mnk1dBqs49jCzeexYZkBFojNgCKze6fKJRBpWM/collections/giveUpSooner.jpg",
-//     imageAlt: "Give Up Sooner",
-//     collection: "Postcards from the future",
-//     title: "Give Up Sooner",
-//     formattedPrice: "0.3 KSM",
-//   },
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/QmPhmst9Mnk1dBqs49jCzeexYZkBFojNgCKze6fKJRBpWM/collections/theGarden.jpg",
-//     imageAlt: "The Garden of Industrial Strength",
-//     collection: "Postcards from the future",
-//     title: "The Garden of Industrial Strength",
-//     formattedPrice: "0.3 KSM",
-//   },
-//   {
-//     imageUrl:
-//       "https://gateway.pinata.cloud/ipfs/Qma1G36jzm3dPzgzL4fF6yF5YYw1uH8KUEfYG2ufZGKVV5",
-//     imageAlt: "Sand Castle",
-//     collection: "Messages from the country",
-//     title: "Sand Castle",
-//     formattedPrice: "0.3 KSM",
-//   },
-// ];
-
 export default function Market({ data }) {
 
   return (
