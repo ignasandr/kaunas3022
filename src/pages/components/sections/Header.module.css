@@ -1,0 +1,7 @@
+.standard {
+    filter: invert(100%);
+}
+
+.inverted {
+    filter: invert(0%);
+}

@@ -20,7 +20,7 @@ export default function MarketItem({ data }) {
 
   return (
     <Center>
-      <Flex flexDirection="column" w={["70vw", "60vw", "50vw", "35vw"]}>
+      <Flex flexDirection="column" w={["70vw", "60vw", "50vw", "40vw"]}>
         <Box style={{ position: "relative "}}>
           <Link to="/market" style={{ position: "absolute", left: -50, top: 8 }}><IconButton aria-label="back" icon={<ArrowBackIcon/>} /></Link>
           <Text w="100%" textAlign="center" my="3" fontSize="xl" fontWeight="bold">
@@ -36,12 +36,12 @@ export default function MarketItem({ data }) {
         </Box>
           <Box my="3" w="100%">
             <Flex justify="space-between" align="center">
-              <Box>
+              <Box fontSize={{ base: "xs", md: "sm", lg: "md"}}>
                 <Text>Name: {title}</Text>
                 <Text>Collection: {collection}</Text>
                 <Text>Price: {formattedPrice ? <Badge>{formattedPrice}</Badge> : "Not for sale"}</Text>
               </Box>
-              <Button>BUY</Button>
+              <Button onClick={()=> alert("polkadot{.js} integration coming soon")}>BUY</Button>
             </Flex>
           </Box>
       </Flex>

@@ -1,9 +1,10 @@
 import React, { useState } from "react";
-import { Flex, HStack, Box, useColorMode, Fade } from "@chakra-ui/react";
+import { Flex, HStack, Box, useColorMode, Image } from "@chakra-ui/react";
 import { Link } from "gatsby";
-import { StaticImage } from "gatsby-plugin-image";
 import { AnimateSharedLayout, motion } from "framer-motion";
 import { useLocation } from "@reach/router";
+import logo from "../../../images/logos/dark.jpg"
+import * as styles from "./Header.module.css"
 
 const MenuItems = ["Home", "About", "Market", "Contact"];
 
@@ -21,25 +22,10 @@ export default function Header() {
         height={100}
         cursor={"pointer"}
       >
-        <Fade in={colorMode === "dark"} unmountOnExit>
-          <StaticImage
-            src="../../../images/logos/dark.jpg"
-            height={100}
-            alt="Kaunas 3022"
-            style={{ position: "absolute" }}
-          ></StaticImage>
-        </Fade>
-        <Fade in={colorMode === "light"} unmountOnExit>
-          <StaticImage
-            src="../../../images/logos/light.jpg"
-            height={100}
-            alt="Kaunas 3022"
-            style={{ position: "absolute" }}
-          ></StaticImage>
-        </Fade>
+        <Image height={100} src={logo} alt="Logo" className={colorMode === 'light' ? styles.standard : styles.inverted}/>
       </Box>
       <AnimateSharedLayout>
-        <HStack spacing="5" mr={10} fontSize="2xl" fontWeight="400">
+        <HStack spacing={{base: 2, sm: 5 }} mr={{base: 3, sm: 10}} fontSize={{base: "3vw", sm: "xl", md: "2xl"}} fontWeight="400">
           {MenuItems.map((name) => {
             const trimmed = "/" + name.replace(/\s+/g, "").toLowerCase();
             return (

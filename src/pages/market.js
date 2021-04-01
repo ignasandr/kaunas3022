@@ -15,7 +15,7 @@ export default function Market({ data }) {
   );
 }
 
-const Card = ({ imageUrl, imageAlt, collection, title, formattedPrice, slug }) => {
+const Card = ({ imageUrl, imageAlt, collection, title, formattedPrice, slug, color }) => {
   return (
   <Link to={"/" + slug}>
     <Box
