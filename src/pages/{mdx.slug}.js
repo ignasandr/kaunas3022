@@ -41,7 +41,7 @@ export default function MarketItem({ data }) {
                 <Text>Collection: {collection}</Text>
                 <Text>Price: {formattedPrice ? <Badge>{formattedPrice}</Badge> : "Not for sale"}</Text>
               </Box>
-              <Button onClick={()=> alert("polkadot{.js} integration coming soon")}>BUY</Button>
+              <Button onClick={()=> alert("coming soon")}>BUY</Button>
             </Flex>
           </Box>
       </Flex>
