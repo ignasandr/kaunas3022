@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  kaunas3022:
+    container_name: kaunas3022 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    expose:
+    - '80'
+    restart: always
+    environment: 
+        VIRTUAL_HOST: kaunas3022.com, www.kaunas3022.com
+
+networks:
+  default:
+    external:
+      name: nginx-proxy
